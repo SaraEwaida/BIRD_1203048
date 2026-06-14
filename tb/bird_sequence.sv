@@ -1,11 +1,8 @@
 // Author: Dana Taher - 1221240
-// Role: Student 2
 // File: bird_sequence.sv
 // Purpose: Generate legal random BIRD transactions for the driver.
 
-//==============================================================================
-// Project: BIRD - Birzeit Integrated Router Design (ENCS5337)
-//==============================================================================
+
 
 class bird_sequence;
 
