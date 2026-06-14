@@ -1,11 +1,9 @@
 // Author: Dana Taher - 1221240
-// Role: Student 2
+
 // File: bird_driver.sv
 // Purpose: Drive BIRD input transactions using the valid/ready handshake.
 
-//==============================================================================
-// Project: BIRD - Birzeit Integrated Router Design (ENCS5337)
-//==============================================================================
+
 
 class bird_driver;
 
