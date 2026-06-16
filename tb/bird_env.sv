@@ -24,7 +24,7 @@ class bird_env;
   function new(virtual bird_if vif, int number_of_transactions = 5);
     this.vif                     = vif;
     this.number_of_transactions  = number_of_transactions;
-    this.drain_cycles            = 200;    // reasonable default
+    this.drain_cycles = number_of_transactions * 300;
     this.built                   = 1'b0;
   endfunction
 
