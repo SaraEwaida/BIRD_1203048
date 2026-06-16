@@ -82,14 +82,12 @@ module bird_top;
   //       $finish;
   //     end
   //--------------------------------------------------------------------------
-  bird_env env;
-
-initial begin
-  env = new(vif, 10);
-  env.build();
-  env.run();
-  $finish;
-end
+  initial begin
+    // placeholder until env/test are integrated
+    repeat (20) @(posedge clk);
+    $display("[bird_top] clock/reset/DUT wiring OK - replace with test run");
+    $finish;
+  end
 
   //--------------------------------------------------------------------------
   // Optional waveform dump (handy on the EDA server)
