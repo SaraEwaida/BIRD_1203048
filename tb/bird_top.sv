@@ -12,10 +12,11 @@
 
 `include "bird_if.sv"
 `include "bird_transaction.sv"
-// As the environment / tests are added by the other students, include them
-// here too, for example:
-//   `include "bird_env.sv"
-//   `include "bird_test.sv"
+`include "bird_sequence.sv"
+`include "bird_driver.sv"
+`include "bird_monitor.sv"
+`include "bird_scoreboard.sv"
+`include "bird_env.sv"
 
 module bird_top;
 
