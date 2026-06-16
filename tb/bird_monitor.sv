@@ -21,8 +21,7 @@ class bird_monitor;
   endfunction
 
   // run : wait for reset release, then start the three observers in parallel.
-  // fork...join_none lets run() return immediately while the three
-  // forever loops keep monitoring for the whole simulation.
+  // fork...join_none lets run() return immediately while the three forever loops keep monitoring for the whole simulation.
   
   task run();
     // rst_n is asynchronous, so it is read directly, not through vif.cb.
@@ -55,10 +54,10 @@ class bird_monitor;
     forever begin
       // Wait for the next accepted input byte (start of a new packet).
       @(vif.cb);
-      if (vif.cb.in_vld && vif.cb.in_rdy) begin
+      if (vif.in_vld && vif.cb.in_rdy) begin
 
         // Sample the raw cfg on the first payload byte of the packet.
-        raw_cfg      = vif.cb.cfg;
+        raw_cfg      = vif.cfg;
         traffic_type = raw_cfg[0];
         payload_len  = raw_cfg[15:8];
         frag_num     = raw_cfg[20:16];
@@ -79,13 +78,13 @@ class bird_monitor;
 
         if (payload_len == 0) begin
           // Byte currently on the bus is the CRC high byte.
-          crc_hi = vif.cb.data_in;
+          crc_hi = vif.data_in;
           // Next accepted byte is the CRC low byte.
           capture_next_byte(crc_lo);
         end
         else begin
           // First payload byte is the one already on the bus this cycle.
-          tr.payload[0] = vif.cb.data_in;
+          tr.payload[0] = vif.data_in;
           // Remaining payload bytes.
           for (int i = 1; i < payload_len; i++) begin
             capture_next_byte(tr.payload[i]);
@@ -113,8 +112,8 @@ class bird_monitor;
   task capture_next_byte(output bit [7:0] b);
     do begin
       @(vif.cb);
-    end while (!(vif.cb.in_vld && vif.cb.in_rdy));
-    b = vif.cb.data_in;
+    end while (!(vif.in_vld && vif.cb.in_rdy));
+    b = vif.data_in;
   endtask
 
   // monitor_local_output : sample one local output byte per accepted beat.
@@ -123,7 +122,7 @@ class bird_monitor;
     bit [7:0] b;
     forever begin
       @(vif.cb);
-      if (vif.cb.local_vld && vif.cb.local_rdy) begin
+      if (vif.cb.local_vld && vif.local_rdy) begin
         b = vif.cb.data_local;       // SAMPLE only, never drive local_rdy
         mon2sb_local.put(b);
         $display("[bird_monitor] local out byte = 0x%02h", b);
@@ -137,7 +136,7 @@ class bird_monitor;
     bit [31:0] w;
     forever begin
       @(vif.cb);
-      if (vif.cb.remote_vld && vif.cb.remote_rdy) begin
+      if (vif.cb.remote_vld && vif.remote_rdy) begin
         w = vif.cb.data_remote;      // SAMPLE only, never drive remote_rdy
         mon2sb_remote.put(w);
         $display("[bird_monitor] remote out word = 0x%08h", w);
