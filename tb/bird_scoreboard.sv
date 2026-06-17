@@ -111,19 +111,21 @@ class bird_scoreboard;
   task predict_remote(bird_transaction tr, bit [4:0] seq_num, bit [4:0] frag_num);
     if (!rem_active) begin
       start_remote_accum(tr, seq_num);
-      return;
     end
-    // Mismatched seq while a packet is open -> drop it, discard its buffer, then start fresh with the arriving fragment (spec 8.1).
-    if (seq_num != rem_seq) begin
+    else if (seq_num != rem_seq) begin
       exp_drop_count++;
       $display("[bird_scoreboard] DROP (remote seq mismatch arr=%0d open=%0d) -> exp_drop=%0d",
                seq_num, rem_seq, exp_drop_count);
       rem_active = 1'b0;
       rem_frags.delete();
       start_remote_accum(tr, seq_num);
-      return;
     end
-    add_remote_fragment(tr, frag_num);
+    else begin
+      add_remote_fragment(tr, frag_num);
+    end
+    // Spec: reassemble & output as soon as fragments 1..N are all present.
+    if (rem_active && remote_is_contiguous())
+      finalize_remote();
   endtask
 
   task start_remote_accum(bird_transaction tr, bit [4:0] seq_num);
