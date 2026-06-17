@@ -50,16 +50,16 @@ class bird_coverage;
     option.per_instance = 1;
 
     cp_traffic : coverpoint s_traffic {
-      bins local  = {0};
-      bins remote = {1};
+      bins loc = {0};   // local  (note: 'local' is a reserved SV keyword)
+      bins rem = {1};   // remote
     }
 
     cp_len : coverpoint s_len {
       bins zero  = {0};            // illegal payload length
       bins one   = {1};
-      bins small = {[2:15]};
+      bins sml   = {[2:15]};      // 'small' is a reserved SV keyword
       bins mid   = {[16:127]};
-      bins large = {[128:254]};
+      bins lrg   = {[128:254]};   // 'large' is a reserved SV keyword
       bins max   = {255};
     }
 
