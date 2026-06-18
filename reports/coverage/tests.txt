@@ -1,0 +1,18 @@
+Tests
+
+Total Coverage Summary 
+SCORE  LINE   COND   TOGGLE FSM    BRANCH GROUP  
+ 62.48  61.40  48.78  40.65  80.00  66.67  77.38 
+
+
+Total tests in report: 7
+-------------------------------------------------------------------------------
+Data from the following tests was used to generate this report
+bird_tests/remote_seqmismatch 
+bird_tests/drop_len0          
+bird_tests/remote             
+bird_tests/legal              
+bird_tests/drop_local_bad     
+bird_tests/drop_seq0          
+bird_tests/drop_frag0         
+

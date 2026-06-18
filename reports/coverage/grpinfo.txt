@@ -1,0 +1,460 @@
+Group : $unit::bird_coverage::cg
+
+===============================================================================
+Group : $unit::bird_coverage::cg
+===============================================================================
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING 
+ 77.38  77.38    1      100    1        1            64           64            
+
+
+Source File(s) : 
+
+/home/st86/BIRD_1203048/sim/../tb/bird_coverage.sv
+
+1 Instances:
+
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING NAME                    
+ 77.38 1      100    1        64           64            bird_tests_top.x.cov.cg 
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   $unit::bird_coverage::cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       3         15      81.67   
+Crosses   20       7         13      66.67   
+
+
+Variables for Group  $unit::bird_coverage::cg
+
+
+VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_traffic  2        0         2       100.00  100  1      1        0                    
+cp_len      6        1         5       83.33   100  1      1        0                    
+cp_frag     4        0         4       100.00  100  1      1        0                    
+cp_seq      4        1         3       75.00   100  1      1        0                    
+cp_reserved 2        1         1       50.00   100  1      1        0                    
+
+
+Crosses for Group  $unit::bird_coverage::cg
+
+
+CROSS          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+x_traffic_len  12       5         7       58.33   100  1      1        0                     
+x_traffic_frag 8        2         6       75.00   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_traffic
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_traffic
+
+
+Bins
+
+NAME COUNT AT LEAST 
+rem  17    1        
+loc  16    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_len
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        1         5       83.33   
+
+
+User Defined Bins for cp_len
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER 
+max  0     1        1      
+
+
+Covered bins
+
+NAME COUNT AT LEAST 
+lrg  18    1        
+mid  6     1        
+sml  4     1        
+one  1     1        
+zero 4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_frag
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_frag
+
+
+Bins
+
+NAME COUNT AT LEAST 
+max  1     1        
+mid  8     1        
+one  20    1        
+zero 4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_seq
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        1         3       75.00   
+
+
+User Defined Bins for cp_seq
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER 
+max  0     1        1      
+
+
+Covered bins
+
+NAME COUNT AT LEAST 
+mid  9     1        
+one  20    1        
+zero 4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_reserved
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        1         1       50.00   
+
+
+User Defined Bins for cp_reserved
+
+
+Uncovered bins
+
+NAME      COUNT AT LEAST NUMBER 
+violation 0     1        1      
+
+
+Covered bins
+
+NAME  COUNT AT LEAST 
+clean 33    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross x_traffic_len
+
+
+Samples crossed: cp_traffic cp_len
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 12       5         7       58.33   5       
+
+
+Automatically Generated Cross Bins for x_traffic_len
+
+
+Uncovered bins
+
+cp_traffic cp_len             COUNT AT LEAST NUMBER 
+[rem]      [max]              0     1        1      
+[loc]      [max]              0     1        1      
+[loc]      [sml , one , zero] --    --       3      
+
+
+Covered bins
+
+cp_traffic cp_len COUNT AT LEAST 
+rem        lrg    5     1        
+rem        mid    3     1        
+rem        sml    4     1        
+rem        one    1     1        
+rem        zero   4     1        
+loc        lrg    13    1        
+loc        mid    3     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross x_traffic_frag
+
+
+Samples crossed: cp_traffic cp_frag
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 8        2         6       75.00   2       
+
+
+Automatically Generated Cross Bins for x_traffic_frag
+
+
+Uncovered bins
+
+cp_traffic cp_frag COUNT AT LEAST NUMBER 
+[loc]      [max]   0     1        1      
+[loc]      [zero]  0     1        1      
+
+
+Covered bins
+
+cp_traffic cp_frag COUNT AT LEAST 
+rem        max     1     1        
+rem        mid     4     1        
+rem        one     8     1        
+rem        zero    4     1        
+loc        mid     4     1        
+loc        one     12    1        
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Group Instance : bird_tests_top.x.cov.cg
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+ 77.38 1      100    1        64           64            
+
+
+Group:
+
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                     
+ 77.38  77.38    1      100    1        1            64           64                    $unit::bird_coverage::cg 
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group Instance   bird_tests_top.x.cov.cg
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 18       3         15      81.67   
+Crosses   20       7         13      66.67   
+
+
+Variables for Group Instance  bird_tests_top.x.cov.cg
+
+
+VARIABLE    EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+cp_traffic  2        0         2       100.00  100  1      1        0                    
+cp_len      6        1         5       83.33   100  1      1        0                    
+cp_frag     4        0         4       100.00  100  1      1        0                    
+cp_seq      4        1         3       75.00   100  1      1        0                    
+cp_reserved 2        1         1       50.00   100  1      1        0                    
+
+
+Crosses for Group Instance  bird_tests_top.x.cov.cg
+
+
+CROSS          EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+x_traffic_len  12       5         7       58.33   100  1      1        0                     
+x_traffic_frag 8        2         6       75.00   100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_traffic
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for cp_traffic
+
+
+Bins
+
+NAME COUNT AT LEAST 
+rem  17    1        
+loc  16    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_len
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        1         5       83.33   
+
+
+User Defined Bins for cp_len
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER 
+max  0     1        1      
+
+
+Covered bins
+
+NAME COUNT AT LEAST 
+lrg  18    1        
+mid  6     1        
+sml  4     1        
+one  1     1        
+zero 4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_frag
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        0         4       100.00  
+
+
+User Defined Bins for cp_frag
+
+
+Bins
+
+NAME COUNT AT LEAST 
+max  1     1        
+mid  8     1        
+one  20    1        
+zero 4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_seq
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 4        1         3       75.00   
+
+
+User Defined Bins for cp_seq
+
+
+Uncovered bins
+
+NAME COUNT AT LEAST NUMBER 
+max  0     1        1      
+
+
+Covered bins
+
+NAME COUNT AT LEAST 
+mid  9     1        
+one  20    1        
+zero 4     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cp_reserved
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        1         1       50.00   
+
+
+User Defined Bins for cp_reserved
+
+
+Uncovered bins
+
+NAME      COUNT AT LEAST NUMBER 
+violation 0     1        1      
+
+
+Covered bins
+
+NAME  COUNT AT LEAST 
+clean 33    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross x_traffic_len
+
+
+Samples crossed: cp_traffic cp_len
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 12       5         7       58.33   5       
+
+
+Automatically Generated Cross Bins for x_traffic_len
+
+
+Uncovered bins
+
+cp_traffic cp_len             COUNT AT LEAST NUMBER 
+[rem]      [max]              0     1        1      
+[loc]      [max]              0     1        1      
+[loc]      [sml , one , zero] --    --       3      
+
+
+Covered bins
+
+cp_traffic cp_len COUNT AT LEAST 
+rem        lrg    5     1        
+rem        mid    3     1        
+rem        sml    4     1        
+rem        one    1     1        
+rem        zero   4     1        
+loc        lrg    13    1        
+loc        mid    3     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross x_traffic_frag
+
+
+Samples crossed: cp_traffic cp_frag
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 8        2         6       75.00   2       
+
+
+Automatically Generated Cross Bins for x_traffic_frag
+
+
+Uncovered bins
+
+cp_traffic cp_frag COUNT AT LEAST NUMBER 
+[loc]      [max]   0     1        1      
+[loc]      [zero]  0     1        1      
+
+
+Covered bins
+
+cp_traffic cp_frag COUNT AT LEAST 
+rem        max     1     1        
+rem        mid     4     1        
+rem        one     8     1        
+rem        zero    4     1        
+loc        mid     4     1        
+loc        one     12    1        
+
+
