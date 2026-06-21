@@ -29,13 +29,14 @@ Class-based SystemVerilog verification environment (no UVM) for the instructor-p
 Report: reports/coverage/dashboard.html  (text summary: reports/coverage/dashboard.txt)
 
 ## Results
-- Functional (covergroup) coverage: 77.4% (input/scenario covergroup ~90%, per-instance 85%).
-- Code coverage: 69.95% (line 71.5, cond 63.4, toggle 54.7, FSM 80, branch 72.7).
-- Scoreboard finds 3 DUT spec violations (see docs/verification_report.md):
-  - BUG-1: local packets with SEQ_NUM != 1 are wrongly dropped.
-  - BUG-2: remote reassembly indexes by SEQ_NUM instead of FRAG_NUM.
-  - BUG-3: drop_cnt does not match the one-per-dropped-packet rule.
-- FINAL RESULT: FAIL is correct — it reflects the real DUT bugs, not testbench errors.
+
+- Functional (covergroup) coverage: **88.51%** (per-instance 89.83%).
+- Code coverage: **~70%** (line 71.5, cond 63.4, toggle 54.7, FSM 80, branch 72.7).
+- Scoreboard finds **3 DUT spec violations** (see `docs/verification_report.md`):
+  - **BUG-1:** local packets with SEQ_NUM != 1 are wrongly dropped.
+  - **BUG-2:** remote reassembly indexes by SEQ_NUM instead of FRAG_NUM.
+  - **BUG-3:** drop_cnt does not match the one-per-dropped-packet rule.
+- `FINAL RESULT: FAIL` is correct — it reflects the real DUT bugs, not testbench errors.
 
 ## Team
 Sara Ewaida, Maysam Abu Eid, Veronica Wakileh, Dana Taher.
