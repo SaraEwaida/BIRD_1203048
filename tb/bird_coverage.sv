@@ -136,7 +136,7 @@ class bird_coverage;
     cp_drop_event : coverpoint s_drop_event {
       bins unchanged = {0};
       bins increment = {1};
-      bins wraparound = {2};
+      ignore_bins wrap_unreachable = {2};
       illegal_bins unexpected_jump = {3};
     }
   endgroup

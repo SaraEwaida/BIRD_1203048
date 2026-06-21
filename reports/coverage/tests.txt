@@ -2,7 +2,7 @@ Tests
 
 Total Coverage Summary 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH GROUP  
- 69.95  71.50  63.41  54.67  80.00  72.73  77.40 
+ 71.80  71.50  63.41  54.67  80.00  72.73  88.51 
 
 
 Total tests in report: 8
