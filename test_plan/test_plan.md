@@ -69,8 +69,13 @@ Sampled on every observed input packet by `bird_coverage`.
 | `cross traffic × len` | — | Partial |
 | `cross traffic × frag` | — | Partial |
 
-**Achieved functional coverage: 77.98%.** The main remaining hole is the
-reserved-bit `violation` bin: producing it requires the driver to drive a `cfg`
-with a reserved bit set (the transaction's `get_cfg()` currently always packs
-reserved bits as 0). Recommended follow-up: add a small driver/test hook to
-inject reserved-bit cfg words.
+**Achieved functional (covergroup) coverage: 88.51% (per-instance 89.83%);
+code coverage: 69.95%** (line 71.5%, cond 63.4%, toggle 54.7%, FSM 80%, branch
+72.7%) — merged across 8 directed tests; source `reports/coverage/dashboard.txt`.
+
+Two unreachable bins are excluded with `ignore_bins` and documented in the
+verification report: the drop-counter `wraparound` bin (needs the 16-bit counter
+to roll over at 65535, impossible in a finite sim) and the input-backpressure
+`present` bin (the DUT ties `in_rdy` high, so input backpressure can never
+occur). Remote-interface backpressure remains unhit because the remote output
+path is defective (BUG-2), so `remote_vld` never asserts.
