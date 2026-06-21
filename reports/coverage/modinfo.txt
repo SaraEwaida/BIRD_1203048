@@ -2,26 +2,26 @@
 Module : bird_if
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 39.42 --     --      39.42 --     --     
+ 53.85 --     --      53.85 --     --     
 
 Source File(s) : 
 
-/home/st86/BIRD_1203048/sim/../tb/bird_if.sv
+/home/st18/BIRD_check/sim/../tb/bird_if.sv
 
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME               
- 39.42 --     --      39.42 --     --     bird_tests_top.vif 
+ 53.85 --     --      53.85 --     --     bird_tests_top.vif 
 
 
 
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : bird_if
                 Total Covered Percent 
-Totals          13    5       38.46   
-Total Bits      208   82      39.42   
-Total Bits 0->1 104   42      40.38   
-Total Bits 1->0 104   40      38.46   
+Totals          13    8       61.54   
+Total Bits      208   112     53.85   
+Total Bits 0->1 104   57      54.81   
+Total Bits 1->0 104   55      52.88   
 
                           
 Ports          1 1 100.00 
@@ -29,11 +29,11 @@ Port Bits      2 2 100.00
 Port Bits 0->1 1 1 100.00 
 Port Bits 1->0 1 1 100.00 
 
-                               
-Signals          12  4  33.33  
-Signal Bits      206 80 38.83  
-Signal Bits 0->1 103 41 39.81  
-Signal Bits 1->0 103 39 37.86  
+                                
+Signals          12  7   58.33  
+Signal Bits      206 110 53.40  
+Signal Bits 0->1 103 56  54.37  
+Signal Bits 1->0 103 54  52.43  
 
 Port Details
     Toggle Toggle 1->0 Toggle 0->1 Direction 
@@ -45,17 +45,12 @@ rst_n             No     No          Yes
 in_vld            Yes    Yes         Yes         
 in_rdy            No     No          No          
 data_in[7:0]      Yes    Yes         Yes         
-cfg[0]            Yes    Yes         Yes         
-cfg[7:1]          No     No          No          
-cfg[20:8]         Yes    Yes         Yes         
-cfg[23:21]        No     No          No          
-cfg[28:24]        Yes    Yes         Yes         
-cfg[31:29]        No     No          No          
+cfg[31:0]         Yes    Yes         Yes         
 local_vld         Yes    Yes         Yes         
-local_rdy         No     No          No          
+local_rdy         Yes    Yes         Yes         
 data_local[7:0]   Yes    Yes         Yes         
 remote_vld        No     No          No          
-remote_rdy        No     No          No          
+remote_rdy        Yes    Yes         Yes         
 data_remote[31:0] No     No          No          
 drop_cnt[1:0]     Yes    Yes         Yes         
 drop_cnt[2]       No     No          Yes         
@@ -70,25 +65,25 @@ Module Instance : bird_tests_top.vif
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 39.42 --     --      39.42 --     --     
+ 53.85 --     --      53.85 --     --     
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 39.42 --     --      39.42 --     --     
+ 53.85 --     --      53.85 --     --     
 
 
 Module : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME    
- 39.42 --     --      39.42 --     --     bird_if 
+ 53.85 --     --      53.85 --     --     bird_if 
 
 
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME           
- 87.78  83.33 --     100.00 --      80.00 bird_tests_top 
+ 87.99  82.14 --     100.00 --      81.82 bird_tests_top 
 
 
 Subtrees :
@@ -104,16 +99,16 @@ Since this is the module's only instance, the coverage report is the same as for
 Module : bird
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 58.14  56.98  48.78  41.28  80.00  63.64 
+ 67.75  69.83  63.41  55.05  80.00  70.45 
 
 Source File(s) : 
 
-/home/st86/BIRD_1203048/sim/../design/bird.sv
+/home/st18/BIRD_check/sim/../design/bird.sv
 
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME               
- 58.14  56.98  48.78  41.28  80.00  63.64 bird_tests_top.DUT 
+ 67.75  69.83  63.41  55.05  80.00  70.45 bird_tests_top.DUT 
 
 
 
@@ -121,18 +116,18 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME
 Line Coverage for Module : bird
 
              Line No.   Total   Covered  Percent
-TOTAL                      179      102    56.98
+TOTAL                      179      125    69.83
 ROUTINE            52        1        1   100.00
-ROUTINE            60       19       15    78.95
+ROUTINE            60       19       18    94.74
 ROUTINE            88        8        0     0.00
 ROUTINE           104        8        0     0.00
 ALWAYS            122        1        1   100.00
 ALWAYS            133       13       12    92.31
 ROUTINE           164        6        6   100.00
 ROUTINE           175        3        0     0.00
-ROUTINE           183        6        0     0.00
+ROUTINE           183        6        6   100.00
 ROUTINE           196       11        0     0.00
-ALWAYS            243      103       67    65.05
+ALWAYS            243      103       81    78.64
 
 51                        task automatic inc_drop_cnt();
 52         1/1              drop_cnt <= drop_cnt + 16'd1;
@@ -146,11 +141,11 @@ ALWAYS            243      103       67    65.05
 60         1/1              inv = 0;
 61                      
 62                          // Reserved bits must be 0
-63         1/2     ==>      if (c[7:1]   != 7'd0) inv = 1;
+63         2/2              if (c[7:1]   != 7'd0) inv = 1;
                         MISSING_ELSE
-64         1/2     ==>      if (c[23:21] != 3'd0) inv = 1;
+64         2/2              if (c[23:21] != 3'd0) inv = 1;
                         MISSING_ELSE
-65         1/2     ==>      if (c[31:29] != 3'd0) inv = 1;
+65         2/2              if (c[31:29] != 3'd0) inv = 1;
                         MISSING_ELSE
 66                      
 67                          // PAYLOAD_LEN must be 1..255 (0 invalid)
@@ -278,15 +273,15 @@ ALWAYS            243      103       67    65.05
 180                     
 181                       function automatic bit all_frags_ready(input int unsigned n);
 182                         bit ok;
-183        0/1     ==>      ok = 1;
-184        0/1     ==>      for (int f = 1; f <= 31; f++) begin
-185        0/1     ==>        if (f <= n) begin
-186        0/2     ==>          if (!frag_seen[f]) ok = 0;
-                   ==>  MISSING_ELSE
+183        1/1              ok = 1;
+184        1/1              for (int f = 1; f <= 31; f++) begin
+185        1/1                if (f <= n) begin
+186        2/2                  if (!frag_seen[f]) ok = 0;
+                        MISSING_ELSE
 187                           end
-                   ==>  MISSING_ELSE
+                        MISSING_ELSE
 188                         end
-189        0/1     ==>      return ok;
+189        1/1              return ok;
 190                       endfunction
 191                     
 192                       task automatic build_and_queue_remote_output();
@@ -511,42 +506,42 @@ ALWAYS            243      103       67    65.05
 402                                         // End-of-fragment on the second CRC byte
 403        1/1                              if (crc_left == 1) begin
 404        1/1                                  if (!rx_drop && rx_is_remote) begin
-405        0/1     ==>                              $display("no drop and is remote");
+405        1/1                                      $display("no drop and is remote");
 406                                                 // Commit remote fragment payload if active and SEQ matches
-407        0/1     ==>                              if (!(remote_active && (rx_seq <= rx_frag))) begin
+407        1/1                                      if (!(remote_active && (rx_seq <= rx_frag))) begin
 408                                                     // Remote fragment without valid active context => drop packet
 409        0/1     ==>                                  $display("inc_drop_cnt rx_seq %0d active_seq %0d", rx_seq, active_seq);
 410        0/1     ==>                                  inc_drop_cnt();
 411                                                 end else begin
 412                                                     // rx_frag is guaranteed non-zero by cfg_invalid() for remote
 413                                                     //if (rx_frag < 1 || rx_frag > 31) begin
-414        0/1     ==>                                  if (rx_seq < 1 || rx_seq > rx_frag) begin
+414        1/1                                          if (rx_seq < 1 || rx_seq > rx_frag) begin
 415        0/1     ==>                                      drop_remote_packet_counted();
 416                                                     end else begin
-417        0/1     ==>                                      $display("payload ready ........");
+417        1/1                                              $display("payload ready ........");
 418                                                         //frag_seen[rx_frag] = 1;
 419                                                         //frag_payload[rx_frag].delete();
-420        0/1     ==>                                      frag_seen[rx_seq] = 1;
-421        0/1     ==>                                      frag_payload[rx_seq].delete();
+420        1/1                                              frag_seen[rx_seq] = 1;
+421        1/1                                              frag_payload[rx_seq].delete();
 422                                                         //foreach (cur_frag_payload[i]) frag_payload[rx_frag].push_back(cur_frag_payload[i]);
 423                     
-424        0/1     ==>                                      foreach (cur_frag_payload[i]) begin
-425        0/1     ==>                                          $display ("push back to frag_payload %0h",cur_frag_payload[i] );
-426        0/1     ==>                                          frag_payload[rx_seq].push_back(cur_frag_payload[i]);
+424        1/1                                              foreach (cur_frag_payload[i]) begin
+425        1/1                                                  $display ("push back to frag_payload %0h",cur_frag_payload[i] );
+426        1/1                                                  frag_payload[rx_seq].push_back(cur_frag_payload[i]);
 427                                                         end
 428                     
 429                                                         // Infer N as max FRAG_NUM seen so far
-430        0/1     ==>                                      $display("check if frag done");
-431        0/2     ==>                                      if (rx_frag > active_max_frag) active_max_frag = rx_frag;
+430        1/1                                              $display("check if frag done");
+431        2/2                                              if (rx_frag > active_max_frag) active_max_frag = rx_frag;
                    ==>  MISSING_ELSE
-432        0/2     ==>                                      if (rx_seq > active_max_frag) active_max_frag = rx_seq;
-                   ==>  MISSING_ELSE
+432        1/2     ==>                                      if (rx_seq > active_max_frag) active_max_frag = rx_seq;
+                        MISSING_ELSE
 433                     
 434                                                         // If we now have all fragments 1..N, build output
-435        0/1     ==>                                      if (all_frags_ready(active_max_frag)) begin
+435        1/1                                              if (all_frags_ready(active_max_frag)) begin
 436        0/1     ==>                                          build_and_queue_remote_output();
 437                                                         end
-                   ==>  MISSING_ELSE
+                        MISSING_ELSE
 438                                                     end
 439                                                 end
 440                                             end
@@ -569,8 +564,8 @@ ALWAYS            243      103       67    65.05
 Cond Coverage for Module : bird
 
                Total   Covered  Percent
-Conditions         41       20    48.78
-Logical            41       20    48.78
+Conditions         41       26    63.41
+Logical            41       26    63.41
 Non-Logical         0        0
 Event               0        0
 
@@ -580,7 +575,7 @@ Event               0        0
 
 -1- -2- Status
  0   1  Covered
- 1   0  Not Covered
+ 1   0  Covered
  1   1  Covered
 
  LINE       148
@@ -661,7 +656,7 @@ Event               0        0
 
 -1- -2- Status
  0   1  Covered
- 1   0  Not Covered
+ 1   0  Covered
  1   1  Covered
 
  LINE       404
@@ -671,7 +666,7 @@ Event               0        0
 -1- -2- Status
  0   1  Covered
  1   0  Covered
- 1   1  Not Covered
+ 1   1  Covered
 
  LINE       407
  EXPRESSION ( ! (remote_active && (rx_seq <= rx_frag)) )
@@ -679,7 +674,7 @@ Event               0        0
 
 -1- Status
  0  Not Covered
- 1  Not Covered
+ 1  Covered
 
  LINE       407
  SUB-EXPRESSION (remote_active && (rx_seq <= rx_frag))
@@ -688,30 +683,30 @@ Event               0        0
 -1- -2- Status
  0   1  Not Covered
  1   0  Not Covered
- 1   1  Not Covered
+ 1   1  Covered
 
  LINE       414
  EXPRESSION ((rx_seq < 1) || (rx_seq > rx_frag))
              ------1-----    ---------2--------
 
 -1- -2- Status
- 0   0  Not Covered
+ 0   0  Covered
  0   1  Not Covered
  1   0  Not Covered
 
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : bird
                 Total Covered Percent 
-Totals          17    7       41.18   
-Total Bits      218   90      41.28   
-Total Bits 0->1 109   47      43.12   
-Total Bits 1->0 109   43      39.45   
+Totals          17    10      58.82   
+Total Bits      218   120     55.05   
+Total Bits 0->1 109   62      56.88   
+Total Bits 1->0 109   58      53.21   
 
-                             
-Ports          13  5  38.46  
-Port Bits      208 82 39.42  
-Port Bits 0->1 104 42 40.38  
-Port Bits 1->0 104 40 38.46  
+                              
+Ports          13  8   61.54  
+Port Bits      208 112 53.85  
+Port Bits 0->1 104 57  54.81  
+Port Bits 1->0 104 55  52.88  
 
                              
 Signals          4  2 50.00  
@@ -726,20 +721,15 @@ rst_n             No     No          Yes         INPUT
 in_vld            Yes    Yes         Yes         INPUT     
 in_rdy            No     No          No          OUTPUT    
 data_in[7:0]      Yes    Yes         Yes         INPUT     
-cfg[0]            Yes    Yes         Yes         INPUT     
-cfg[7:1]          No     No          No          INPUT     
-cfg[20:8]         Yes    Yes         Yes         INPUT     
-cfg[23:21]        No     No          No          INPUT     
-cfg[28:24]        Yes    Yes         Yes         INPUT     
-cfg[31:29]        No     No          No          INPUT     
+cfg[31:0]         Yes    Yes         Yes         INPUT     
 drop_cnt[1:0]     Yes    Yes         Yes         OUTPUT    
 drop_cnt[2]       No     No          Yes         OUTPUT    
 drop_cnt[15:3]    No     No          No          OUTPUT    
 local_vld         Yes    Yes         Yes         OUTPUT    
-local_rdy         No     No          No          INPUT     
+local_rdy         Yes    Yes         Yes         INPUT     
 data_local[7:0]   Yes    Yes         Yes         OUTPUT    
 remote_vld        No     No          No          OUTPUT    
-remote_rdy        No     No          No          INPUT     
+remote_rdy        Yes    Yes         Yes         INPUT     
 data_remote[31:0] No     No          No          OUTPUT    
 
 Signal Details
@@ -776,9 +766,9 @@ RX_PAYLOAD->RX_IDLE 245      Not Covered
 -------------------------------------------------------------------------------
 Branch Coverage for Module : bird
          Line No. Total Covered Percent 
-Branches          44    28      63.64   
+Branches          44    31      70.45   
 IF       133      5     4       80.00   
-IF       243      39    24      61.54   
+IF       243      39    27      69.23   
 
 
 133            if (!rst_n) begin
@@ -1142,12 +1132,12 @@ Branches:
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    0    -    -    -    -    -    -    -    Covered     
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    1    -    -    -    -    Not Covered 
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    1    -    -    -    Not Covered 
-0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    1    -    -    Not Covered 
+0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    1    -    -    Covered     
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    0    -    -    Not Covered 
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    -    1    -    Not Covered 
-0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    -    0    -    Not Covered 
+0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    -    0    -    Covered     
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    -    -    1    Not Covered 
-0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    -    -    0    Not Covered 
+0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    1    0    0    -    -    0    Covered     
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    1    0    -    -    -    -    -    Covered     
 0   1   RX_CRC      -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    0    -    -    -    -    -    -    Covered     
 0   1   default     -   -   -   -   -   -   -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    Not Covered 
@@ -1162,25 +1152,25 @@ Module Instance : bird_tests_top.DUT
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 58.14  56.98  48.78  41.28  80.00  63.64 
+ 67.75  69.83  63.41  55.05  80.00  70.45 
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 58.14  56.98  48.78  41.28  80.00  63.64 
+ 67.75  69.83  63.41  55.05  80.00  70.45 
 
 
 Module : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME 
- 58.14  56.98  48.78  41.28  80.00  63.64 bird 
+ 67.75  69.83  63.41  55.05  80.00  70.45 bird 
 
 
 Parent : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME           
- 87.78  83.33 --     100.00 --      80.00 bird_tests_top 
+ 87.99  82.14 --     100.00 --      81.82 bird_tests_top 
 
 
 Subtrees :
@@ -1196,16 +1186,16 @@ Since this is the module's only instance, the coverage report is the same as for
 Module : bird_tests_top
 ===============================================================================
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 87.78  83.33 --     100.00 --      80.00 
+ 87.99  82.14 --     100.00 --      81.82 
 
 Source File(s) : 
 
-/home/st86/BIRD_1203048/sim/../tests/bird_tests_top.sv
+/home/st18/BIRD_check/sim/../tests/bird_tests_top.sv
 
 Module self-instances :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME           
- 87.78  83.33 --     100.00 --      80.00 bird_tests_top 
+ 87.99  82.14 --     100.00 --      81.82 bird_tests_top 
 
 
 
@@ -1213,72 +1203,102 @@ SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME
 Line Coverage for Module : bird_tests_top
 
              Line No.   Total   Covered  Percent
-TOTAL                       36       30    83.33
-INITIAL            28        1        1   100.00
-ALWAYS             29        2        2   100.00
-INITIAL            50        5        5   100.00
-INITIAL            58       22       19    86.36
-INITIAL            75        4        1    25.00
-INITIAL            81        2        2   100.00
+TOTAL                       28       23    82.14
+ALWAYS             25        2        2   100.00
+INITIAL            46        5        5   100.00
+INITIAL            55       15       13    86.67
+INITIAL           103        4        1    25.00
+INITIAL           109        2        2   100.00
 
-27                        bit clk;
-28         1/1            initial clk = 1'b0;
-29         2/2            always #5 clk = ~clk;
-30                      
-31                        bird_if vif (clk);
-32                      
-33                        bird DUT (
-34                          .clk         (clk),
-35                          .rst_n       (vif.rst_n),
-36                          .in_vld      (vif.in_vld),
-37                          .in_rdy      (vif.in_rdy),
-38                          .data_in     (vif.data_in),
-39                          .cfg         (vif.cfg),
-40                          .local_vld   (vif.local_vld),
-41                          .local_rdy   (vif.local_rdy),
-42                          .data_local  (vif.data_local),
-43                          .remote_vld  (vif.remote_vld),
-44                          .remote_rdy  (vif.remote_rdy),
-45                          .data_remote (vif.data_remote),
-46                          .drop_cnt    (vif.drop_cnt)
-47                        );
-48                      
-49                        initial begin
-50         1/1              vif.rst_n = 1'b0;
-51         3/3              repeat (3) @(posedge clk);
+24                        bit clk = 0;
+25         2/2            always #5 clk = ~clk;
+26                      
+27                        bird_if vif(clk);
+28                      
+29                        bird DUT (
+30                          .clk         (clk),
+31                          .rst_n       (vif.rst_n),
+32                          .in_vld      (vif.in_vld),
+33                          .in_rdy      (vif.in_rdy),
+34                          .data_in     (vif.data_in),
+35                          .cfg         (vif.cfg),
+36                          .local_vld   (vif.local_vld),
+37                          .local_rdy   (vif.local_rdy),
+38                          .data_local  (vif.data_local),
+39                          .remote_vld  (vif.remote_vld),
+40                          .remote_rdy  (vif.remote_rdy),
+41                          .data_remote (vif.data_remote),
+42                          .drop_cnt    (vif.drop_cnt)
+43                        );
+44                      
+45                        initial begin
+46         1/1              vif.rst_n = 0;
+47         3/3              repeat (3) @(posedge clk);
                         REPEAT_FALSE
-52         1/1              vif.rst_n = 1'b1;
-53                        end
+48         1/1              vif.rst_n = 1;
+49                        end
+50                      
+51                        initial begin
+52                          string tname;
+53                          bird_base_test test;
 54                      
-55                        initial begin
-56                          string tname;
-57                          bird_base_test test;
-58         1/2     ==>      if (!$value$plusargs("TEST=%s", tname)) tname = "legal";
+55         1/1              if (!$value$plusargs("TEST=%s", tname))
+56         0/1     ==>        tname = "coverage_closure";
                         MISSING_ELSE
-59         1/1              case (tname)
-60         2/2                "legal":              begin bird_test_legal              x; x = new(vif); test = x; end
-61         2/2                "remote":             begin bird_test_remote             x; x = new(vif); test = x; end
-62         2/2                "drop_seq0":          begin bird_test_drop_seq0          x; x = new(vif); test = x; end
-63         2/2                "drop_frag0":         begin bird_test_drop_frag0         x; x = new(vif); test = x; end
-64         2/2                "drop_len0":          begin bird_test_drop_len0          x; x = new(vif); test = x; end
-65         2/2                "drop_local_bad":     begin bird_test_drop_local_bad     x; x = new(vif); test = x; end
-66         2/2                "remote_seqmismatch": begin bird_test_remote_seqmismatch x; x = new(vif); test = x; end
-67         0/2     ==>        default:              begin bird_test_legal              x; x = new(vif); test = x; end
-68                          endcase
-69         1/1              $display("[bird_tests_top] running TEST=%s", tname);
-70         1/1              test.run();
-71         1/1              $finish;
-72                        end
-73                      
-74                        initial begin
-75         1/2     ==>      #5_000_000;
-76         0/1     ==>      $display("[bird_tests_top] TIMEOUT");
-77         0/1     ==>      $finish;
-78                        end
-79                      
-80                        initial begin
-81         1/1              $dumpfile("bird_tests.vcd");
-82         1/1              $dumpvars(0, bird_tests_top);
+57                      
+58         1/1              case (tname)
+59                            "legal": begin
+60                              bird_test_legal x = new(vif);
+61         1/1                  test = x;
+62                            end
+63                            "remote": begin
+64                              bird_test_remote x = new(vif);
+65         1/1                  test = x;
+66                            end
+67                            "drop_seq0": begin
+68                              bird_test_drop_seq0 x = new(vif);
+69         1/1                  test = x;
+70                            end
+71                            "drop_frag0": begin
+72                              bird_test_drop_frag0 x = new(vif);
+73         1/1                  test = x;
+74                            end
+75                            "drop_len0": begin
+76                              bird_test_drop_len0 x = new(vif);
+77         1/1                  test = x;
+78                            end
+79                            "drop_local_bad": begin
+80                              bird_test_drop_local_bad x = new(vif);
+81         1/1                  test = x;
+82                            end
+83                            "remote_seqmismatch": begin
+84                              bird_test_remote_seqmismatch x = new(vif);
+85         1/1                  test = x;
+86                            end
+87                            "coverage_closure": begin
+88                              bird_test_coverage_closure x = new(vif);
+89         1/1                  test = x;
+90                            end
+91                            default: begin
+92                              bird_test_coverage_closure x = new(vif);
+93         0/1     ==>          test = x;
+94                            end
+95                          endcase
+96                      
+97         1/1              $display("[bird_tests_top] running TEST=%s", tname);
+98         1/1              test.run();
+99         1/1              $finish;
+100                       end
+101                     
+102                       initial begin
+103        1/2     ==>      #10_000_000;
+104        0/1     ==>      $display("[bird_tests_top] TIMEOUT");
+105        0/1     ==>      $finish;
+106                       end
+107                     
+108                       initial begin
+109        1/1              $dumpfile("bird_tests.vcd");
+110        1/1              $dumpvars(0, bird_tests_top);
 
 -------------------------------------------------------------------------------
 Toggle Coverage for Module : bird_tests_top
@@ -1302,16 +1322,17 @@ clk Yes    Yes         Yes
 -------------------------------------------------------------------------------
 Branch Coverage for Module : bird_tests_top
          Line No. Total Covered Percent 
-Branches          10    8       80.00   
-IF       58       2     1       50.00   
-CASE     59       8     7       87.50   
+Branches          11    9       81.82   
+IF       55       2     1       50.00   
+CASE     58       9     8       88.89   
 
 
-58             if (!$value$plusargs("TEST=%s", tname)) tname = "legal";
+55             if (!$value$plusargs("TEST=%s", tname))
                -1-  
-               ==>
-               MISSING_ELSE
-               ==>
+56               tname = "coverage_closure";
+                 ==>
+                 MISSING_ELSE
+                 ==>
 
 Branches:
 
@@ -1320,24 +1341,52 @@ Branches:
 0   Covered     
 
 
-59             case (tname)
+58             case (tname)
                -1-  
-60               "legal":              begin bird_test_legal              x; x = new(vif); test = x; end
-                 ==>
-61               "remote":             begin bird_test_remote             x; x = new(vif); test = x; end
-                 ==>
-62               "drop_seq0":          begin bird_test_drop_seq0          x; x = new(vif); test = x; end
-                 ==>
-63               "drop_frag0":         begin bird_test_drop_frag0         x; x = new(vif); test = x; end
-                 ==>
-64               "drop_len0":          begin bird_test_drop_len0          x; x = new(vif); test = x; end
-                 ==>
-65               "drop_local_bad":     begin bird_test_drop_local_bad     x; x = new(vif); test = x; end
-                 ==>
-66               "remote_seqmismatch": begin bird_test_remote_seqmismatch x; x = new(vif); test = x; end
-                 ==>
-67               default:              begin bird_test_legal              x; x = new(vif); test = x; end
-                 ==>
+59               "legal": begin
+60                 bird_test_legal x = new(vif);
+61                 test = x;
+                   ==>
+62               end
+63               "remote": begin
+64                 bird_test_remote x = new(vif);
+65                 test = x;
+                   ==>
+66               end
+67               "drop_seq0": begin
+68                 bird_test_drop_seq0 x = new(vif);
+69                 test = x;
+                   ==>
+70               end
+71               "drop_frag0": begin
+72                 bird_test_drop_frag0 x = new(vif);
+73                 test = x;
+                   ==>
+74               end
+75               "drop_len0": begin
+76                 bird_test_drop_len0 x = new(vif);
+77                 test = x;
+                   ==>
+78               end
+79               "drop_local_bad": begin
+80                 bird_test_drop_local_bad x = new(vif);
+81                 test = x;
+                   ==>
+82               end
+83               "remote_seqmismatch": begin
+84                 bird_test_remote_seqmismatch x = new(vif);
+85                 test = x;
+                   ==>
+86               end
+87               "coverage_closure": begin
+88                 bird_test_coverage_closure x = new(vif);
+89                 test = x;
+                   ==>
+90               end
+91               default: begin
+92                 bird_test_coverage_closure x = new(vif);
+93                 test = x;
+                   ==>
 
 Branches:
 
@@ -1349,6 +1398,7 @@ Branches:
 "drop_len0"           Covered     
 "drop_local_bad"      Covered     
 "remote_seqmismatch"  Covered     
+"coverage_closure"    Covered     
 default               Not Covered 
 
 
@@ -1360,19 +1410,19 @@ Module Instance : bird_tests_top
 Instance :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 87.78  83.33 --     100.00 --      80.00 
+ 87.99  82.14 --     100.00 --      81.82 
 
 
 Instance's subtree :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 59.50  61.40  48.78  40.65  80.00  66.67 
+ 68.46  71.50  63.41  54.67  80.00  72.73 
 
 
 Module : 
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME           
- 87.78  83.33 --     100.00 --      80.00 bird_tests_top 
+ 87.99  82.14 --     100.00 --      81.82 bird_tests_top 
 
 
 Parent : 
@@ -1384,8 +1434,8 @@ none
 Subtrees :
 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME 
- 58.14  56.98  48.78  41.28  80.00  63.64 DUT  
- 39.42 --     --      39.42 --     --     vif  
+ 67.75  69.83  63.41  55.05  80.00  70.45 DUT  
+ 53.85 --     --      53.85 --     --     vif  
 
 
 

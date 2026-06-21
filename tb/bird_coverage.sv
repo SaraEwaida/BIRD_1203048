@@ -45,16 +45,16 @@ class bird_coverage;
     option.weight       = 4;
 
     cp_traffic : coverpoint s_traffic {
-      bins local  = {0};
+      bins loc  = {0};
       bins remote = {1};
     }
 
     cp_len : coverpoint s_len {
       bins invalid_zero = {0};
       bins minimum      = {1};
-      bins small        = {[2:15]};
-      bins medium       = {[16:127]};
-      bins large        = {[128:254]};
+      bins sml        = {[2:15]};
+      bins med       = {[16:127]};
+      bins lrg        = {[128:254]};
       bins maximum      = {255};
     }
 
@@ -172,9 +172,9 @@ class bird_coverage;
     forever begin
       @(vif.cb);
 
-      s_in_bp     = vif.cb.in_vld     && !vif.cb.in_rdy;
-      s_local_bp  = vif.cb.local_vld  && !vif.cb.local_rdy;
-      s_remote_bp = vif.cb.remote_vld && !vif.cb.remote_rdy;
+      s_in_bp     = vif.in_vld     && !vif.cb.in_rdy;
+      s_local_bp  = vif.cb.local_vld  && !vif.local_rdy;
+      s_remote_bp = vif.cb.remote_vld && !vif.remote_rdy;
       cg_protocol.sample();
 
       current_drop = vif.cb.drop_cnt;

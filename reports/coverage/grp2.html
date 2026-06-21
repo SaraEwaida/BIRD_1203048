@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: $unit::bird_coverage::cg_input</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : $unit::bird_coverage::cg_input</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('$unit::bird_coverage::cg_input')">$unit::bird_coverage::cg_input</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>INSTANCES</td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>PER INSTANCE</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s9 cl rt"> 98.86</td>
+<td class="s9 cl rt"> 98.86</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/st18/BIRD_check/sim/../tb/bird_coverage.sv')">/home/st18/BIRD_check/sim/../tb/bird_coverage.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>1 Instances:</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="wht cl wordwrap"><a href="grp2.html#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input"  onclick="showContent('bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input')">bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input</a></td>
+<td class="s9 cl rt"> 98.86</td>
+<td class="wht cl rt">4     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   $unit::bird_coverage::cg_input
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td><a href="#var_tbl_$unit::bird_coverage::cg_input" >Variables</a></td>
+<td class="rt">30</td>
+<td class="rt">0</td>
+<td class="rt">30</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td><a href="#crs_tbl_$unit::bird_coverage::cg_input" >Crosses</a></td>
+<td class="rt">20</td>
+<td class="rt">1</td>
+<td class="rt">19</td>
+<td class="rt">93.75 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_$unit::bird_coverage::cg_input">Variables for Group  $unit::bird_coverage::cg_input
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_traffic"  onclick="checkLink(this)" target="detailFrame">cp_traffic</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_len"  onclick="checkLink(this)" target="detailFrame">cp_len</a></td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_frag"  onclick="checkLink(this)" target="detailFrame">cp_frag</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_seq"  onclick="checkLink(this)" target="detailFrame">cp_seq</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_rsv_7_1"  onclick="checkLink(this)" target="detailFrame">cp_rsv_7_1</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_rsv_23_21"  onclick="checkLink(this)" target="detailFrame">cp_rsv_23_21</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_rsv_31_29"  onclick="checkLink(this)" target="detailFrame">cp_rsv_31_29</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_traffic_transition"  onclick="checkLink(this)" target="detailFrame">cp_traffic_transition</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.cp_remote_order"  onclick="checkLink(this)" target="detailFrame">cp_remote_order</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_$unit::bird_coverage::cg_input">Crosses for Group  $unit::bird_coverage::cg_input
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.x_traffic_len"  onclick="checkLink(this)" target="detailFrame">x_traffic_len</a></td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">12</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s8">
+<td><a href="#inst_tag_$unit::bird_coverage::cg_input.x_traffic_frag"  onclick="checkLink(this)" target="detailFrame">x_traffic_frag</a></td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+<div name='bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input'>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input"></a>
+<hr>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group Instance : <a href="groups.html#tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input" >bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s9 cl rt"> 98.86</td>
+<td class="wht cl rt">4     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group Instance   bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td><a href="#var_tbl_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input" >Variables</a></td>
+<td class="rt">30</td>
+<td class="rt">0</td>
+<td class="rt">30</td>
+<td class="rt">100.00</td>
+</tr><tr class="s9">
+<td><a href="#crs_tbl_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input" >Crosses</a></td>
+<td class="rt">20</td>
+<td class="rt">1</td>
+<td class="rt">19</td>
+<td class="rt">93.75 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input">Variables for Group Instance  bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic"  onclick="checkLink(this)" target="detailFrame">cp_traffic</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_len"  onclick="checkLink(this)" target="detailFrame">cp_len</a></td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_frag"  onclick="checkLink(this)" target="detailFrame">cp_frag</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_seq"  onclick="checkLink(this)" target="detailFrame">cp_seq</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_7_1"  onclick="checkLink(this)" target="detailFrame">cp_rsv_7_1</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_23_21"  onclick="checkLink(this)" target="detailFrame">cp_rsv_23_21</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_31_29"  onclick="checkLink(this)" target="detailFrame">cp_rsv_31_29</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic_transition"  onclick="checkLink(this)" target="detailFrame">cp_traffic_transition</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_remote_order"  onclick="checkLink(this)" target="detailFrame">cp_remote_order</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input">Crosses for Group Instance  bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_len"  onclick="checkLink(this)" target="detailFrame">x_traffic_len</a></td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">12</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s8">
+<td><a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_frag"  onclick="checkLink(this)" target="detailFrame">x_traffic_frag</a></td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='$unit::bird_coverage::cg_input'>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_traffic"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_traffic">Summary for Variable cp_traffic</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_traffic</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote</td>
+<td class="rt">29</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td class="rt">26</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_len"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_len">Summary for Variable cp_len</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_len</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>maximum</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>lrg</td>
+<td class="rt">13</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>med</td>
+<td class="rt">17</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>sml</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>minimum</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>invalid_zero</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_frag"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_frag">Summary for Variable cp_frag</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_frag</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>middle</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>first</td>
+<td class="rt">34</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>invalid_zero</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_seq"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_seq">Summary for Variable cp_seq</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_seq</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>middle</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>minimum</td>
+<td class="rt">36</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>invalid_zero</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_rsv_7_1"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_rsv_7_1">Summary for Variable cp_rsv_7_1</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_rsv_7_1</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>set</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clean</td>
+<td class="rt">54</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_rsv_23_21"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_rsv_23_21">Summary for Variable cp_rsv_23_21</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_rsv_23_21</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>set</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clean</td>
+<td class="rt">54</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_rsv_31_29"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_rsv_31_29">Summary for Variable cp_rsv_31_29</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_rsv_31_29</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>set</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clean</td>
+<td class="rt">54</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_traffic_transition"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_traffic_transition">Summary for Variable cp_traffic_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_traffic_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote_to_remote</td>
+<td class="rt">23</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote_to_local</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>local_to_remote</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>local_to_local</td>
+<td class="rt">22</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.cp_remote_order"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.cp_remote_order">Summary for Variable cp_remote_order</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_remote_order</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>duplicate</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>descending</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>ascending</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>first_or_new_seq</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.x_traffic_len"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.x_traffic_len">Summary for Cross x_traffic_len</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_traffic cp_len<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">12</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for x_traffic_len</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_traffic</td><td class="alfsrt">cp_len</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote</td>
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>lrg</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>sml</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>minimum</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>invalid_zero</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>lrg</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>med</td>
+<td class="rt">13</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>sml</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>minimum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>invalid_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_$unit::bird_coverage::cg_input.x_traffic_frag"></a><span class="repname" id="inst_tag_$unit::bird_coverage::cg_input.x_traffic_frag">Summary for Cross x_traffic_frag</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_traffic cp_frag<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s8">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for x_traffic_frag</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">cp_traffic</td><td class="alfsrt">cp_frag</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[remote]</td>
+<td>[maximum]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_traffic</td><td class="alfsrt">cp_frag</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote</td>
+<td>middle</td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>first</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>invalid_zero</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>middle</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>first</td>
+<td class="rt">20</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>invalid_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+<div name='bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input'>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic">Summary for Variable cp_traffic</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_traffic</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote</td>
+<td class="rt">29</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td class="rt">26</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_len"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_len">Summary for Variable cp_len</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_len</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>maximum</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>lrg</td>
+<td class="rt">13</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>med</td>
+<td class="rt">17</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>sml</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>minimum</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>invalid_zero</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_frag"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_frag">Summary for Variable cp_frag</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_frag</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>middle</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>first</td>
+<td class="rt">34</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>invalid_zero</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_seq"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_seq">Summary for Variable cp_seq</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_seq</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>middle</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>minimum</td>
+<td class="rt">36</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>invalid_zero</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_7_1"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_7_1">Summary for Variable cp_rsv_7_1</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_rsv_7_1</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>set</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clean</td>
+<td class="rt">54</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_23_21"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_23_21">Summary for Variable cp_rsv_23_21</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_rsv_23_21</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>set</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clean</td>
+<td class="rt">54</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_31_29"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_31_29">Summary for Variable cp_rsv_31_29</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_rsv_31_29</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>set</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clean</td>
+<td class="rt">54</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic_transition"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic_transition">Summary for Variable cp_traffic_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_traffic_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote_to_remote</td>
+<td class="rt">23</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote_to_local</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>local_to_remote</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>local_to_local</td>
+<td class="rt">22</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_remote_order"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_remote_order">Summary for Variable cp_remote_order</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cp_remote_order</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>duplicate</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>descending</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>ascending</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>first_or_new_seq</td>
+<td class="rt">12</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_len"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_len">Summary for Cross x_traffic_len</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_traffic cp_len<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">12</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for x_traffic_len</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_traffic</td><td class="alfsrt">cp_len</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote</td>
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>lrg</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>med</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>sml</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>minimum</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>invalid_zero</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>lrg</td>
+<td class="rt">9</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>med</td>
+<td class="rt">13</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>sml</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>minimum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>invalid_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_frag"></a><span class="repname" id="inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_frag">Summary for Cross x_traffic_frag</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: cp_traffic cp_frag<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s8">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for x_traffic_frag</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">cp_traffic</td><td class="alfsrt">cp_frag</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[remote]</td>
+<td>[maximum]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">cp_traffic</td><td class="alfsrt">cp_frag</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>remote</td>
+<td>middle</td>
+<td class="rt">10</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>first</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>remote</td>
+<td>invalid_zero</td>
+<td class="rt">5</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>maximum</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>middle</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>first</td>
+<td class="rt">20</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>loc</td>
+<td>invalid_zero</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="$unit::bird_coverage::cg_input">
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_traffic">Variable : cp_traffic</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_len">Variable : cp_len</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_frag">Variable : cp_frag</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_seq">Variable : cp_seq</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_rsv_7_1">Variable : cp_rsv_7_1</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_rsv_23_21">Variable : cp_rsv_23_21</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_rsv_31_29">Variable : cp_rsv_31_29</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_traffic_transition">Variable : cp_traffic_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.cp_remote_order">Variable : cp_remote_order</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.x_traffic_len">Cross : x_traffic_len</a>    </li>
+    <li>
+      <a href="#inst_tag_$unit::bird_coverage::cg_input.x_traffic_frag">Cross : x_traffic_frag</a>    </li>
+  </ul>
+  <ul name="bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input">
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic">Variable : cp_traffic</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_len">Variable : cp_len</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_frag">Variable : cp_frag</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_seq">Variable : cp_seq</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_7_1">Variable : cp_rsv_7_1</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_23_21">Variable : cp_rsv_23_21</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_rsv_31_29">Variable : cp_rsv_31_29</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_traffic_transition">Variable : cp_traffic_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.cp_remote_order">Variable : cp_remote_order</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_len">Cross : x_traffic_len</a>    </li>
+    <li>
+      <a href="#inst_tag_bird_tests_top.bird_tests_top.unnamed$$_0.x.cov.cg_input.x_traffic_frag">Cross : x_traffic_frag</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

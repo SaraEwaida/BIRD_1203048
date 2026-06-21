@@ -2,11 +2,13 @@ Testbench Group List
 
 Total Groups Coverage Summary 
 SCORE  INST SCORE WEIGHT 
- 77.38  77.38     1      
+ 77.40  85.06     1      
 
 
-Total groups in report: 1
+Total groups in report: 3
 -------------------------------------------------------------------------------
-SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                     
- 77.38  77.38    1      100    1        1            64           64                    $unit::bird_coverage::cg 
+SCORE  INSTANCES WEIGHT GOAL   AT LEAST PER INSTANCE AUTO BIN MAX PRINT MISSING COMMENT NAME                              
+ 66.67  66.67    1      100    1        1            64           64                    $unit::bird_coverage::cg_counter  
+ 66.67  66.67    1      100    1        1            64           64                    $unit::bird_coverage::cg_protocol 
+ 98.86  98.86    1      100    1        1            64           64                    $unit::bird_coverage::cg_input    
 

@@ -1,0 +1,9 @@
+sim/csrc/
+sim/*.daidir/
+sim/simv*
+sim/*.vdb/
+sim/*.log
+sim/*.vcd
+sim/ucli.key
+sim/cm.log
+sim/.fsm.sch.verilog.xml

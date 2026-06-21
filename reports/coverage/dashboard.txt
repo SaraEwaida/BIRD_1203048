@@ -1,33 +1,33 @@
 Dashboard
 
-Date: Fri Jun 19 00:35:10 2026
+Date: Sun Jun 21 23:33:17 2026
 
-User: st86
+User: st18
 
 Version: T-2022.06-SP2
 Command line: urg -dir bird_tests.vdb -format both -report ../reports/coverage
-Number of tests: 7
+Number of tests: 8
 
 -------------------------------------------------------------------------------
 Total Coverage Summary 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH GROUP  
- 62.48  61.40  48.78  40.65  80.00  66.67  77.38 
+ 69.95  71.50  63.41  54.67  80.00  72.73  77.40 
 
 
 -------------------------------------------------------------------------------
 Hierarchical coverage data for top-level instances 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH NAME           
- 59.50  61.40  48.78  40.65  80.00  66.67 bird_tests_top 
+ 68.46  71.50  63.41  54.67  80.00  72.73 bird_tests_top 
 
 
 -------------------------------------------------------------------------------
 Total Module Definition Coverage Summary 
 SCORE  LINE   COND   TOGGLE FSM    BRANCH 
- 59.50  61.40  48.78  40.65  80.00  66.67 
+ 68.46  71.50  63.41  54.67  80.00  72.73 
 
 
 -------------------------------------------------------------------------------
 Total Groups Coverage Summary 
 SCORE  INST SCORE WEIGHT 
- 77.38  77.38     1      
+ 77.40  85.06     1      
 
