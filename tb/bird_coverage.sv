@@ -1,26 +1,6 @@
 //==============================================================================
 // File   : bird_coverage.sv
-// Project: BIRD - Birzeit Integrated Router Design  (ENCS5337)
-// Author : Student 3 (Functional Coverage)
-// Purpose: Functional coverage for the BIRD input stream. Samples each packet
-//          observed by the monitor (traffic type, payload length, fragment
-//          number, sequence number, reserved-bit violations) and the useful
-//          crosses, then forwards the packet unchanged to the scoreboard.
-//
-// Style follows the class slides (Tumbush/Spear): a plain class holding one
-// covergroup, sampled from a run() task fed by mailboxes. No UVM.
-//
-// Coverage model (BIRD spec, Section 5/6):
-//   - traffic_type : local vs remote
-//   - payload_len  : boundary + range bins (incl. illegal 0 and max 255)
-//   - frag_num     : illegal 0, single (1), middle, max (31)
-//   - seq_num      : illegal 0, first (1), middle, max (31)
-//   - reserved     : whether any reserved cfg bit was set (must be 0 = legal)
-//   - crosses      : traffic_type x payload_len, traffic_type x frag_num
-//
-// NOTE: the illegal bins (len=0, frag=0, seq=0, reserved=violation) stay empty
-// until directed "drop" sequences exercise them (that is Student 2's task).
-// Empty bins here are expected holes, not bugs.
+// Purpose: Requirement-oriented functional coverage for BIRD.
 //==============================================================================
 
 `ifndef BIRD_COVERAGE_SV
@@ -28,118 +8,268 @@
 
 class bird_coverage;
 
-  // Mailboxes: in/cfg come FROM the monitor; out/ocfg go TO the scoreboard.
   mailbox #(bird_transaction) in_mb;
   mailbox #(bit [31:0])       cfg_mb;
   mailbox #(bird_transaction) out_mb;
   mailbox #(bit [31:0])       ocfg_mb;
+  virtual bird_if             vif;
 
-  // Sampled values (set just before cg.sample()).
-  bit        s_traffic;
-  bit [7:0]  s_len;
-  bit [4:0]  s_frag;
-  bit [4:0]  s_seq;
-  bit        s_reserved;
+  bit       s_traffic;
+  bit [7:0] s_len;
+  bit [4:0] s_frag;
+  bit [4:0] s_seq;
+  bit       s_rsv_7_1;
+  bit       s_rsv_23_21;
+  bit       s_rsv_31_29;
 
-  int unsigned sampled;
+  bit       s_prev_traffic;
+  bit       s_transition_valid;
+  bit [1:0] s_remote_order;
 
-  //--------------------------------------------------------------------------
-  // Covergroup
-  //--------------------------------------------------------------------------
-  covergroup cg;
+  bit       s_in_bp;
+  bit       s_local_bp;
+  bit       s_remote_bp;
+  bit [1:0] s_drop_event;
+
+  bit       have_prev_packet;
+  bit       have_prev_remote;
+  bit [4:0] prev_remote_seq;
+  bit [4:0] prev_remote_frag;
+
+  int unsigned packets_sampled;
+  int unsigned cycles_sampled;
+
+  // Weight 4: most specification requirements concern packet/config cases.
+  covergroup cg_input;
     option.per_instance = 1;
+    option.weight       = 4;
 
     cp_traffic : coverpoint s_traffic {
-      bins loc = {0};   // local  (note: 'local' is a reserved SV keyword)
-      bins rem = {1};   // remote
+      bins local  = {0};
+      bins remote = {1};
     }
 
     cp_len : coverpoint s_len {
-      bins zero  = {0};            // illegal payload length
-      bins one   = {1};
-      bins sml   = {[2:15]};      // 'small' is a reserved SV keyword
-      bins mid   = {[16:127]};
-      bins lrg   = {[128:254]};   // 'large' is a reserved SV keyword
-      bins max   = {255};
+      bins invalid_zero = {0};
+      bins minimum      = {1};
+      bins small        = {[2:15]};
+      bins medium       = {[16:127]};
+      bins large        = {[128:254]};
+      bins maximum      = {255};
     }
 
     cp_frag : coverpoint s_frag {
-      bins zero = {0};             // illegal fragment number
-      bins one  = {1};
-      bins mid  = {[2:30]};
-      bins max  = {31};
+      bins invalid_zero = {0};
+      bins first        = {1};
+      bins middle       = {[2:30]};
+      bins maximum      = {31};
     }
 
     cp_seq : coverpoint s_seq {
-      bins zero = {0};             // illegal sequence number
-      bins one  = {1};
-      bins mid  = {[2:30]};
-      bins max  = {31};
+      bins invalid_zero = {0};
+      bins minimum      = {1};
+      bins middle       = {[2:30]};
+      bins maximum      = {31};
     }
 
-    cp_reserved : coverpoint s_reserved {
-      bins clean     = {0};
-      bins violation = {1};
+    cp_rsv_7_1 : coverpoint s_rsv_7_1 {
+      bins clean = {0};
+      bins set   = {1};
+    }
+
+    cp_rsv_23_21 : coverpoint s_rsv_23_21 {
+      bins clean = {0};
+      bins set   = {1};
+    }
+
+    cp_rsv_31_29 : coverpoint s_rsv_31_29 {
+      bins clean = {0};
+      bins set   = {1};
+    }
+
+    // iff prevents the first packet from producing a fake transition.
+    cp_traffic_transition : coverpoint {s_prev_traffic, s_traffic}
+                            iff (s_transition_valid) {
+      bins local_to_local   = {2'b00};
+      bins local_to_remote  = {2'b01};
+      bins remote_to_local  = {2'b10};
+      bins remote_to_remote = {2'b11};
+    }
+
+    cp_remote_order : coverpoint s_remote_order iff (s_traffic) {
+      bins first_or_new_seq = {0};
+      bins ascending        = {1};
+      bins descending       = {2};
+      bins duplicate        = {3};
     }
 
     x_traffic_len  : cross cp_traffic, cp_len;
     x_traffic_frag : cross cp_traffic, cp_frag;
   endgroup
 
-  //--------------------------------------------------------------------------
-  // Constructor
-  //--------------------------------------------------------------------------
+  // Weight 2: valid/ready behavior on the three interfaces.
+  covergroup cg_protocol;
+    option.per_instance = 1;
+    option.weight       = 2;
+
+    cp_input_backpressure : coverpoint s_in_bp {
+      bins absent  = {0};
+      bins present = {1};
+    }
+
+    cp_local_backpressure : coverpoint s_local_bp {
+      bins absent  = {0};
+      bins present = {1};
+    }
+
+    cp_remote_backpressure : coverpoint s_remote_bp {
+      bins absent  = {0};
+      bins present = {1};
+    }
+  endgroup
+
+  // Weight 1: hold, increment and true ffff->0000 wrap behavior.
+  covergroup cg_counter;
+    option.per_instance = 1;
+    option.weight       = 1;
+
+    cp_drop_event : coverpoint s_drop_event {
+      bins unchanged = {0};
+      bins increment = {1};
+      bins wraparound = {2};
+      illegal_bins unexpected_jump = {3};
+    }
+  endgroup
+
   function new(mailbox #(bird_transaction) in_mb,
                mailbox #(bit [31:0])       cfg_mb,
                mailbox #(bird_transaction) out_mb,
-               mailbox #(bit [31:0])       ocfg_mb);
-    this.in_mb   = in_mb;
-    this.cfg_mb  = cfg_mb;
-    this.out_mb  = out_mb;
+               mailbox #(bit [31:0])       ocfg_mb,
+               virtual bird_if             vif);
+    this.in_mb  = in_mb;
+    this.cfg_mb = cfg_mb;
+    this.out_mb = out_mb;
     this.ocfg_mb = ocfg_mb;
-    this.sampled = 0;
-    cg = new();
+    this.vif     = vif;
+
+    have_prev_packet = 0;
+    have_prev_remote = 0;
+    packets_sampled  = 0;
+    cycles_sampled   = 0;
+
+    cg_input    = new();
+    cg_protocol = new();
+    cg_counter  = new();
   endfunction
 
-  //--------------------------------------------------------------------------
-  // run : sample each observed input, then forward it to the scoreboard.
-  //--------------------------------------------------------------------------
+  task sample_protocol_and_counter();
+    bit [15:0] previous_drop;
+    bit [15:0] current_drop;
+
+    @(vif.cb);
+    previous_drop = vif.cb.drop_cnt;
+
+    forever begin
+      @(vif.cb);
+
+      s_in_bp     = vif.cb.in_vld     && !vif.cb.in_rdy;
+      s_local_bp  = vif.cb.local_vld  && !vif.cb.local_rdy;
+      s_remote_bp = vif.cb.remote_vld && !vif.cb.remote_rdy;
+      cg_protocol.sample();
+
+      current_drop = vif.cb.drop_cnt;
+      if (current_drop == previous_drop)
+        s_drop_event = 0;
+      else if (previous_drop == 16'hffff && current_drop == 16'h0000)
+        s_drop_event = 2;
+      else if (current_drop == previous_drop + 16'd1)
+        s_drop_event = 1;
+      else
+        s_drop_event = 3;
+
+      cg_counter.sample();
+      previous_drop = current_drop;
+      cycles_sampled++;
+    end
+  endtask
+
   task run();
     bird_transaction tr;
-    bit [31:0]       raw_cfg;
+    bit [31:0] raw_cfg;
+
+    fork
+      sample_protocol_and_counter();
+    join_none
 
     forever begin
       in_mb.get(tr);
       cfg_mb.get(raw_cfg);
 
-      // Latch the fields, then sample.
-      s_traffic  = tr.traffic_type;
-      s_len      = tr.payload_len;
-      s_frag     = tr.frag_num;
-      s_seq      = tr.seq_num;
-      s_reserved = (raw_cfg[7:1]   != 7'b0) ||
-                   (raw_cfg[23:21] != 3'b0) ||
-                   (raw_cfg[31:29] != 3'b0);
-      cg.sample();
-      sampled++;
+      s_traffic   = tr.traffic_type;
+      s_len       = tr.payload_len;
+      s_frag      = tr.frag_num;
+      s_seq       = tr.seq_num;
+      s_rsv_7_1   = |raw_cfg[7:1];
+      s_rsv_23_21 = |raw_cfg[23:21];
+      s_rsv_31_29 = |raw_cfg[31:29];
 
-      // Forward UNCHANGED so the scoreboard sees the same stream/order.
+      s_transition_valid = have_prev_packet;
+
+      if (s_traffic) begin
+        if (!have_prev_remote || s_seq != prev_remote_seq)
+          s_remote_order = 0;
+        else if (s_frag > prev_remote_frag)
+          s_remote_order = 1;
+        else if (s_frag < prev_remote_frag)
+          s_remote_order = 2;
+        else
+          s_remote_order = 3;
+      end
+      else begin
+        s_remote_order   = 0;
+        have_prev_remote = 0;
+      end
+
+      cg_input.sample();
+      packets_sampled++;
+
+      s_prev_traffic   = s_traffic;
+      have_prev_packet = 1;
+
+      if (s_traffic) begin
+        have_prev_remote = 1;
+        prev_remote_seq  = s_seq;
+        prev_remote_frag = s_frag;
+      end
+
       out_mb.put(tr);
       ocfg_mb.put(raw_cfg);
     end
   endtask
 
-  //--------------------------------------------------------------------------
-  // report : print the achieved functional coverage.
-  //--------------------------------------------------------------------------
   function void report();
+    real input_cov;
+    real protocol_cov;
+    real counter_cov;
+    real overall_cov;
+
+    input_cov    = cg_input.get_inst_coverage();
+    protocol_cov = cg_protocol.get_inst_coverage();
+    counter_cov  = cg_counter.get_inst_coverage();
+    overall_cov  = ((4.0 * input_cov) +
+                    (2.0 * protocol_cov) + counter_cov) / 7.0;
+
     $display("============================================================");
     $display("[bird_coverage] FUNCTIONAL COVERAGE REPORT");
-    $display("  packets sampled       : %0d", sampled);
-    $display("  functional coverage   : %0.2f %%", cg.get_coverage());
+    $display("  packets sampled       : %0d", packets_sampled);
+    $display("  cycles sampled        : %0d", cycles_sampled);
+    $display("  input/scenario        : %0.2f %%", input_cov);
+    $display("  protocol/backpressure : %0.2f %%", protocol_cov);
+    $display("  drop counter behavior : %0.2f %%", counter_cov);
+    $display("  weighted overall      : %0.2f %%", overall_cov);
     $display("============================================================");
   endfunction
 
 endclass : bird_coverage
 
-`endif // BIRD_COVERAGE_SV
+`endif
