@@ -14,7 +14,7 @@
 A complete class-based SystemVerilog verification environment (no UVM) was built
 for the BIRD packet router and run against the instructor-provided DUT. The
 environment compiles and runs cleanly, achieves **88.51% functional coverage**
-and **69.95% code coverage**, and its scoreboard detected **three spec
+and **68.46% code coverage**, and its scoreboard detected **three spec
 violations** in the DUT. The two most serious findings are confirmed directly
 against the DUT source and the specification, so they are defensible rather than
 speculative.
@@ -27,7 +27,7 @@ speculative.
 | Remote output checks | 0 pass — reproduce BUG-2 |
 | Drop-count check | mismatch reproduces BUG-3 |
 | Functional (covergroup) coverage | 88.51% (per-instance 89.83%) |
-| Code coverage | 69.95% (line 71.5 / cond 63.4 / toggle 54.7 / FSM 80 / branch 72.7) |
+| Code coverage | 68.46% (line 71.5 / cond 63.4 / toggle 54.7 / FSM 80 / branch 72.7) |
 | Defects found | 3 (2 High, 1 Medium–High) |
 
 The overall `FINAL RESULT: FAIL` is the **correct** outcome: it reflects real
@@ -104,7 +104,7 @@ Coverage is measured across **8 directed tests** merged into one URG database
 - **Drop-counter behaviour** — hold, increment, wrap.
 
 **Merged results: functional (covergroup) coverage 88.51% (per-instance 89.83%);
-code coverage 69.95%** (line 71.5%, condition 63.4%, toggle 54.7%, FSM 80%,
+code coverage 68.46%** (line 71.5%, condition 63.4%, toggle 54.7%, FSM 80%,
 branch 72.7%).
 
 Two bins are **physically unreachable** and are therefore excluded with
