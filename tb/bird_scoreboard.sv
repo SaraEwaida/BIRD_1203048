@@ -157,12 +157,10 @@ class bird_scoreboard;
     return 1'b1;
   endfunction
 
-
-  task finalize_remote();
+task finalize_remote();
     bit [7:0]  merged [];
-    bit [7:0]  stream [];
     bit [15:0] new_crc;
-    int        total = 0, widx = 0, slen, sidx = 0;
+    int        total = 0, widx = 0;
 
     // sort fragments by frag_num
     for (int a = 0; a < rem_frags.size(); a++)
@@ -180,20 +178,18 @@ class bird_scoreboard;
 
     new_crc = calc_crc16(merged);
 
-    slen   = total + 2;
-    stream = new[slen];
-    foreach (merged[i]) stream[sidx++] = merged[i];
-    stream[sidx++] = new_crc[15:8];
-    stream[sidx++] = new_crc[7:0];
-
-    for (int i = 0; i < slen; i += 4) begin
+    // Pack merged PAYLOAD bytes into 32-bit words, little-endian within each
+    // word, exactly like the DUT's pack_bytes_to_words():
+    //   byte0 -> word[7:0], byte1 -> word[15:8], byte2 -> [23:16], byte3 -> [31:24]
+    for (int i = 0; i < total; i += 4) begin
       bit [31:0] word = 32'h0;
-      for (int j = 0; j < 4; j++) begin
-        word = word << 8;
-        if ((i + j) < slen) word[7:0] = stream[i + j];   // else zero-pad
-      end
+      for (int k = 0; k < 4; k++)
+        if ((i + k) < total) word[8*k +: 8] = merged[i + k];
       exp_remote_q.push_back(word);
     end
+
+    // DUT emits the regenerated CRC as its OWN trailing word: {16'h0000, crc}
+    exp_remote_q.push_back({16'h0000, new_crc});
 
     $display("[bird_scoreboard] REMOTE finalize seq=%0d frags=%0d len=%0d crc=0x%04h",
              rem_seq, rem_frags.size(), total, new_crc);
